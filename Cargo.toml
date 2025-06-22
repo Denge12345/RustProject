@@ -1,0 +1,17 @@
+[workspace]
+members = [
+    "frontend",
+    "backend",
+    "common"
+]
+
+[patch.crates-io]
+ort = { git="https://github.com/biliticket/ort" }
+ort-sys = { git = "https://github.com/biliticket/ort" }
+
+[profile.release]
+strip = true  # Automatically strip symbols from the binary.
+opt-level = "z"  # Optimize for size.
+lto = true
+codegen-units = 1
+panic = "abort"
